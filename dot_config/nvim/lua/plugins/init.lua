@@ -7,7 +7,6 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 local ok, packer = pcall(require, "packer")
-
 if not ok then
     return
 end
@@ -31,6 +30,19 @@ return require('packer').startup(function(use)
 
 	-- THEME
 	use {"morhetz/gruvbox"}
+
+	-- COMPLETION
+	use {"hrsh7th/nvim-cmp"}
+	use {"hrsh7th/cmp-nvim-lsp"}
+
+	-- LSP
+	use {
+		"fatih/vim-go",
+		config = function()
+			require "plugins.configs.vimgo"
+		end
+	}
+	use {"nvim-lspconfig"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
