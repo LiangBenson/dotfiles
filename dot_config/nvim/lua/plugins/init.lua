@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
 			require "plugins.configs.vimgo"
 		end
 	}
-	use {"nvim-lspconfig"}
+	use {"neovim/nvim-lspconfig"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
