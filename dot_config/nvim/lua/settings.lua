@@ -3,6 +3,8 @@ if vim.env.VIM_GO_BIN_PATH then
 	vim.g.go_bin_path = vim_env.VIM_GO_BIN_PATH
 end
 
+vim.g.mapleader = " "
+
 vim.opt.wrap            = true
 vim.opt.swapfile        = false
 vim.opt.hlsearch        = false
