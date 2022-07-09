@@ -43,4 +43,9 @@ function FormatAndImports(wait_ms)
 end
 
 
-vim.api.nvim_command([[ autocmd BufWritePre *.go lua FormatAndImports(3000) ]])
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.go",
+	callback = function(args)
+		goFormatAndImports(3000)
+	end,
+})

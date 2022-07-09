@@ -25,7 +25,6 @@ wk.register({
         r = { "<cmd>NvimTreeRefresh<cr>", "[NVIMTREE] Refresh" },
         c = { "<cmd>NvimTreeCollapse<cr>", "[NVIMTREE] Collapse" },
     },
-    ["<c-b>"] = { "<cmd>NvimTreeToggle<cr>", "[NVIMTREE] Toggle" },
 
     ["<leader>f"] = {
         name = "[TELESCOPE]",

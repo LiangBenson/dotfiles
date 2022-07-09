@@ -99,6 +99,7 @@ return require('packer').startup(function(use)
 			require('Comment').setup()
 		end
 	}
+	use {"christoomey/vim-tmux-navigator"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
