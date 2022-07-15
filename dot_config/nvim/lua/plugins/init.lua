@@ -8,21 +8,21 @@ vim.cmd [[packadd packer.nvim]]
 
 local ok, packer = pcall(require, "packer")
 if not ok then
-    return
+	return
 end
 
 packer.init {
-    display = {
-        open_fn = function()
-            return require("packer.util").float { border = "single" }
-        end,
-        prompt_border = "single",
-    },
-    git = {
-        clone_timeout = 600,
-    },
-    auto_clean = true,
-    compile_on_sync = true,
+	display = {
+		open_fn = function()
+			return require("packer.util").float { border = "single" }
+		end,
+		prompt_border = "single",
+	},
+	git = {
+		clone_timeout = 600,
+	},
+	auto_clean = true,
+	compile_on_sync = true,
 }
 
 return require('packer').startup(function(use)
@@ -76,23 +76,24 @@ return require('packer').startup(function(use)
 		config = function() require("nvim-autopairs").setup {} end
 	}
 	use {
-	  "folke/trouble.nvim",
-	  requires = "kyazdani42/nvim-web-devicons",
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 	}
 	use {
-	  'kyazdani42/nvim-tree.lua',
-	  require = {
-		'kyazdani42/nvim-web-devicons', -- optional, for file icons
-	  },
-	  config = function() require "plugins.configs.nvimtree" end,
+		'kyazdani42/nvim-tree.lua',
+		require = {
+			'kyazdani42/nvim-web-devicons', -- optional, for file icons
+		},
+		config = function() require "plugins.configs.nvimtree" end,
 	}
 	use {
-		"feline-nvim/feline.nvim",
-		config = function() require "plugins.configs.feline" end,
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function() require "plugins.configs.lualine" end,
 	}
 	use {
-        "folke/which-key.nvim",
-    }
+		"folke/which-key.nvim",
+	}
 	use {
 		'numToStr/Comment.nvim',
 		config = function()
