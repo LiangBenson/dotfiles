@@ -1,1 +1,4 @@
 .DS_Store
+
+# Machine-specific shell settings (~/.zsh/config is a link to this repo folder).
+zsh/.zsh/config/local.zsh

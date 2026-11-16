@@ -5,8 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-[[ -o interactive ]] || return
-
 ZSH_HOME="${HOME}/.zsh"
 ZSH_CONFIG_DIR="${ZSH_HOME}/config"
 ZSH_PLUGIN_DIR="${ZSH_HOME}/plugins"
@@ -25,7 +23,9 @@ zsh_source_if_exists "${ZSH_CONFIG_DIR}/completions.zsh"
 zsh_source_if_exists "${ZSH_CONFIG_DIR}/plugins.zsh"
 zsh_source_if_exists "${ZSH_CONFIG_DIR}/fzf.zsh"
 zsh_source_if_exists "${ZSH_CONFIG_DIR}/prompt.zsh"
+
+# Settings for this machine only (not tracked in git).
 zsh_source_if_exists "${ZSH_CONFIG_DIR}/local.zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Last: it wraps every key binding widget defined before it.
+zsh_source_if_exists "${ZSH_PLUGIN_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

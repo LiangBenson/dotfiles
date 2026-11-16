@@ -1,5 +1,17 @@
 return {
   {
+    -- Installs these language servers into Neovim's data folder (no sudo) and
+    -- turns on every server installed through Mason. Add more names here.
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+    opts = {
+      ensure_installed = { "lua_ls" },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -35,8 +47,6 @@ return {
           },
         },
       })
-
-      vim.lsp.enable("lua_ls")
     end,
   },
 }

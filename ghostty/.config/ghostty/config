@@ -1,4 +1,35 @@
+# ── Font ─────────────────────────────────────────────────────────────────
 font-family = FiraCode Nerd Font
 font-size = 14
 
-scrollback-limit = 100000
+# ── Colors ───────────────────────────────────────────────────────────────
+# Catppuccin Frappé: the soft, muted Catppuccin flavor. The tmux status bar
+# (tmux/.tmux/catppuccin-theme.conf) uses the same palette.
+theme = Catppuccin Frappe
+# Selection in the same muted gray tmux uses for its copy-mode selection,
+# instead of the theme's bright pink block.
+selection-background = #51576d
+selection-foreground = #c6d0f5
+
+# ── Window ───────────────────────────────────────────────────────────────
+# Tabs live in the title bar, which takes the terminal background color.
+macos-titlebar-style = tabs
+window-padding-x = 8
+window-padding-y = 10,6
+
+# ── Cursor and mouse ─────────────────────────────────────────────────────
+cursor-style = bar
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+# ── SSH ──────────────────────────────────────────────────────────────────
+# Wraps `ssh` in Ghostty-launched shells: the first connection to a host
+# installs Ghostty's terminal definition there (so tmux starts instead of
+# failing with "missing or unsuitable terminal: xterm-ghostty"); hosts where
+# that isn't possible get TERM=xterm-256color instead.
+shell-integration-features = ssh-env,ssh-terminfo
+
+# ── Keys ─────────────────────────────────────────────────────────────────
+# cmd+shift+D belongs to the "Download Claude Folder" Quick Action
+# (~/Library/Services), not Ghostty's split down (tmux does the splits).
+keybind = super+shift+d=unbind

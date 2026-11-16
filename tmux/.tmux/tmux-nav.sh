@@ -34,7 +34,11 @@ case "${direction}" in
     ;;
 esac
 
-if [[ "${fzf_active}" == "1" ]]; then
+# A single (or zoomed) pane has nowhere to move to: let the program have the
+# key, so C-j / C-l / C-k / C-h work in Claude Code and the shell.
+only_pane="$(tmux display-message -p -t "${pane_id}" '#{||:#{==:#{window_panes},1},#{window_zoomed_flag}}')"
+
+if [[ "${fzf_active}" == "1" || "${only_pane}" == "1" ]]; then
   tmux send-keys -t "${pane_id}" "${key}"
   exit 0
 fi
